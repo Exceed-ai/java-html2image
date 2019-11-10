@@ -128,6 +128,8 @@ public class ImageRendererImpl implements ImageRenderer {
 			if (autoHeight) {
 				// do layout with temp buffer
 				Graphics2D graphics2D = (Graphics2D) bufferedImage.getGraphics();
+				graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                        RenderingHints.VALUE_ANTIALIAS_ON);
 				renderer.layout(graphics2D, new Dimension(width, height));
 				graphics2D.dispose();
 
@@ -139,6 +141,8 @@ public class ImageRendererImpl implements ImageRenderer {
 			}
 
 			Graphics2D graphics2D = (Graphics2D) bufferedImage.getGraphics();
+			graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                    RenderingHints.VALUE_ANTIALIAS_ON);
 			renderer.layout(graphics2D, dimension);
 			renderer.render(graphics2D);
 			rootBox = renderer.getPanel().getRootBox();
